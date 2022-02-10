@@ -8,9 +8,9 @@ class RouteMap
     }
     public bool FindAirport(string name) //Method to find airport by name. 5%
     {
-        foreach (AirportNode an in A)
+        foreach (AirportNode a in A)
         {
-            if (an.Name.Equals(name))
+            if (a.Name.Equals(name))
             {
                 return true;
             }
@@ -19,28 +19,29 @@ class RouteMap
     }
     public bool FindAirportCode(string code) //Method to find airport by code. 5%
     {
-        foreach (AirportNode an in A)
+        foreach (AirportNode a in A)
         {
-            if (an.Code.Equals(code))
+            if (a.Code.Equals(code))
             {
                 return true;
             }
         }
         return false;
     }
-    public bool AddAirport(AirportNode a) //Methodtoaddairportnode.Duplicatesnotallowed.5% public
+    public bool AddAirport(AirportNode a) //Method to add airportnode. Duplicates not allowed. 5%
     {
-        foreach (AirportNode an in A)
+        if (!FindAirport(a.Name) && !FindAirportCode(a.Code))
         {
-            if (a == an)
-            {
-                return false;
-            }
+            A.Add(a);
+            return true;
         }
-        A.Add(a);
-        return true;
+        else
+        {
+            return false;
+        }
     }
-    bool RemoveAirport(AirportNode a) //Method to remove airport node. Node must exist. 5% public bool
+
+    public bool RemoveAirport(AirportNode a) //Method to remove airport node. Node must exist. 5%
     {
         foreach (AirportNode an in A)
         {
@@ -52,15 +53,25 @@ class RouteMap
         }
         return false;
     }
-    void AddRoute(AirportNode origin, AirportNode dest) // 5%
+
+    public bool AddRoute(AirportNode origin, AirportNode dest) // 5%
     {
-        origin.AddDestination(dest);
+        if (origin.Destinations.Contains(dest))
+        {
+            return false;
+        }
+        else
+        {
+            origin.AddDestination(dest);
+            return true;
+        }
+
     }
     public bool RemoveRoute(AirportNode origin, AirportNode dest) // 5%
     {
-        foreach (AirportNode an in A)
+        foreach (AirportNode a in A)
         {
-            if (an == dest)
+            if (a == dest)
             {
                 origin.RemoveDestination(dest);
                 return true;
@@ -75,13 +86,8 @@ class RouteMap
         foreach (AirportNode i in A)
         {
             // finds destinations from airport i
-            sb.Append($"{i.Name} ({i.Code}) Destinations \n");
-            sb.Append("_____________________________________ \n");
-            foreach (AirportNode an in i.Destinations)
-            {
-                sb.Append($"{an.Name} ({an.Code})\n");
-            }
+            sb.Append($"{i} \n");
         }
-       return sb.ToString();
+        return sb.ToString();
     }
 }
