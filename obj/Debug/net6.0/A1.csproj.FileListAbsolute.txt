@@ -1,0 +1,15 @@
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.csproj.AssemblyReference.cache
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.AssemblyInfoInputs.cache
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.AssemblyInfo.cs
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.csproj.CoreCompileInputs.cache
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\A1.exe
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\A1.deps.json
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\A1.runtimeconfig.json
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\A1.dll
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\ref\A1.dll
+D:\Work\COIS_3020 (2022)\A1\bin\Debug\net6.0\A1.pdb
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.dll
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\ref\A1.dll
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.pdb
+D:\Work\COIS_3020 (2022)\A1\obj\Debug\net6.0\A1.genruntimeconfig.cache
