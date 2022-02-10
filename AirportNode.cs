@@ -13,24 +13,24 @@ class AirportNode
     }
     public void AddDestination(AirportNode destAirport) //method to add destination. 5%
     {
-        if (!Destinations.Contains(destAirport) && destAirport != this)
+        if (!Destinations.Contains(destAirport) && destAirport != this) // checks if Destination list contains the destination airport
         {
-            Destinations.Add(destAirport);
+            Destinations.Add(destAirport);  // destination is added to the list
         }
-        else
+        else // destination already in list
         {
-
+            // Do nothing
         }
     }
     public void RemoveDestination(AirportNode destAirport) //method to remove destination. 5%
     {
-        foreach (AirportNode an in Destinations)
+        if (Destinations.Contains(destAirport)) // checks if the airport node for removal is on the destinations list
         {
-            if (destAirport == an)
-            {
-                Destinations.Remove(destAirport);
-                break;
-            }
+            Destinations.Remove(destAirport);   // removes the airport node from destinations list
+        }
+        else // destination not on list
+        {
+            // Do Nothing
         }
     }
 

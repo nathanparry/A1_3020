@@ -1,8 +1,10 @@
 ﻿using static System.Console;
 class Program
 {
+    // Main start here 
     static void Main(string[] args)
     {
+        // Airport Nodes
         AirportNode YYC = new AirportNode("Calgary International Airport", "YYC");
         AirportNode YEG = new AirportNode("Edmonton International Airport", "YEG");
         AirportNode YFC = new AirportNode("Fredericton International Airport", "YFC");
@@ -17,6 +19,7 @@ class Program
         AirportNode YVR = new AirportNode("Vancouver International Airport", "YVR");
         AirportNode YWG = new AirportNode("Winnepeg International Airport", "YWG");
 
+        // Putem in array
         AirportNode[] airports = new AirportNode[13]
         {
             YYC, YEG, YFC, YQX,
@@ -26,12 +29,16 @@ class Program
         };
 
         RouteMap rm = new RouteMap();
+
         Random r = new Random();
+
+        //add each airport node to the routemap
         foreach (AirportNode a in airports)
         {
             rm.AddAirport(a);
         }
 
+        // add routes to the airport nodes in the route map
         while (rm.AddRoute(airports[r.Next(13)], airports[r.Next(13)]))
         {
             foreach (AirportNode a in airports)
@@ -49,7 +56,7 @@ class Program
         WriteLine(rm);
     }
 
-
+    // Still W.I.P
     void FastestRoute(AirportNode origin, AirportNode Destination)
     {
         Queue<AirportNode> frontQueue = new Queue<AirportNode>();
