@@ -7,9 +7,9 @@ class AirportNode
     public List<AirportNode> Destinations { get; set; } //property for list of destinations.
     public AirportNode(string name, string code) //constructor 5%
     {
-        Name = name;
-        Code = code;
-        Destinations = new List<AirportNode>();
+        Name = name; // sets name
+        Code = code; // sets airport code
+        Destinations = new List<AirportNode>(); // initializes destination list
     }
     public void AddDestination(AirportNode destAirport) //method to add destination. 5%
     {
