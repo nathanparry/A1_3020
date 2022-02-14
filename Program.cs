@@ -39,29 +39,12 @@ class Program
         }
 
 
-        rm.AddRoute(YYT, YUL);
-        rm.AddRoute(YUL, YVR);
-        rm.AddRoute(YVR, YYZ);
-        rm.AddRoute(YYZ, YVR);
-
-
-        rm.AddRoute(YWG, YQB);
-        rm.AddRoute(YQB, YFC);
-        rm.AddRoute(YFC, YQM);
-        rm.AddRoute(YQM, YWG);
-
-
-        WriteLine(rm);
-        //WriteLine(rm);
-        FastestRoute(YYT, YYZ);
-
-        FastestRoute(YWG, YQM);
-
     }
 
     // Still breadth first search W.I.P
     static void FastestRoute(AirportNode origin, AirportNode Destination)
-    {
+    {   
+        // BSF actual algorithm
         Queue<AirportNode> Q = new Queue<AirportNode>();
         Q.Enqueue(origin);
         List<AirportNode> visited = new List<AirportNode>();
@@ -76,9 +59,7 @@ class Program
                 }
             }
         }
-        WriteLine("Fastest");
-        foreach(AirportNode n in visited) {
-            WriteLine(n);
-        }
+        //end of algorithm
+
     }
 }
