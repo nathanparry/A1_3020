@@ -37,14 +37,12 @@ class Program
         {
             rm.AddAirport(a);
         }
-
-
     }
 
     // Still breadth first search W.I.P
     static void FastestRoute(AirportNode origin, AirportNode Destination)
     {   
-        // BSF actual algorithm
+        // BFS actual algorithm
         Queue<AirportNode> Q = new Queue<AirportNode>();
         Q.Enqueue(origin);
         List<AirportNode> visited = new List<AirportNode>();
@@ -59,7 +57,5 @@ class Program
                 }
             }
         }
-        //end of algorithm
-
     }
 }
