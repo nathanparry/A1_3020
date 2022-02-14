@@ -42,7 +42,7 @@ class AirportNode
         sb.Append("<<< Destinations >>>\n");
         foreach (AirportNode i in Destinations)
         {
-            sb.Append($"{i.Name} ({i.Code})\n");
+            sb.Append($"({i.Code}) ");
         }
         return sb.ToString();
     }

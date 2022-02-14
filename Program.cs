@@ -38,45 +38,47 @@ class Program
             rm.AddAirport(a);
         }
 
-        // add routes to the airport nodes in the route map
-        while (rm.AddRoute(airports[r.Next(13)], airports[r.Next(13)]))
-        {
-            foreach (AirportNode a in airports)
-            {
-                if (rm.AddRoute(airports[r.Next(13)], airports[r.Next(13)]))
-                {
-                    for (int i = 0; i < r.Next(13); i++)
-                    {
-                        rm.AddRoute(airports[r.Next(13)], airports[r.Next(13)]);
-                    }
+
+        rm.AddRoute(YYT, YUL);
+        rm.AddRoute(YUL, YVR);
+        rm.AddRoute(YVR, YYZ);
+        rm.AddRoute(YYZ, YVR);
+
+
+        rm.AddRoute(YWG, YQB);
+        rm.AddRoute(YQB, YFC);
+        rm.AddRoute(YFC, YQM);
+        rm.AddRoute(YQM, YWG);
+
+
+        WriteLine(rm);
+        //WriteLine(rm);
+        FastestRoute(YYT, YYZ);
+
+        FastestRoute(YWG, YQM);
+
+    }
+
+    // Still breadth first search W.I.P
+    static void FastestRoute(AirportNode origin, AirportNode Destination)
+    {
+        Queue<AirportNode> Q = new Queue<AirportNode>();
+        Q.Enqueue(origin);
+        List<AirportNode> visited = new List<AirportNode>();
+        visited.Add(origin);
+        AirportNode current = origin;
+        while(Q.TryPeek(out current)){
+            current = Q.Dequeue();
+            foreach(AirportNode n in current.Destinations) {
+                if (!visited.Contains(n)) {
+                    Q.Enqueue(n);
+                    visited.Add(n);
                 }
             }
         }
-
-        WriteLine(rm);
-    }
-
-    // Still W.I.P
-    void FastestRoute(AirportNode origin, AirportNode Destination)
-    {
-        Queue<AirportNode> frontQueue = new Queue<AirportNode>();
-        List<AirportNode> discovered = new List<AirportNode>();
-
-        frontQueue.Enqueue(origin);
-        discovered.Add(origin);
-
-        while (frontQueue.Peek() != null)
-        {
-            AirportNode current = frontQueue.Dequeue();
-
-            foreach (AirportNode a in origin.Destinations)
-            {
-                if (!discovered.Contains(a))
-                {
-                    frontQueue.Enqueue(a);
-                    discovered.Add(a);
-                }
-            }
+        WriteLine("Fastest");
+        foreach(AirportNode n in visited) {
+            WriteLine(n);
         }
     }
 }
