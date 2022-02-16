@@ -35,11 +35,10 @@ class Program
             YWG
         };
 
+        // create route map
         RouteMap rm = new RouteMap();
 
-        Random r = new Random();
-
-        //add each airport node to the routemap
+        //add each airport node to the route map
         foreach (AirportNode a in airports)
         {
             rm.AddAirport(a);
@@ -78,7 +77,7 @@ class Program
         // FastestRoute(YVR, YYZ); // test route for isolated node
         // FastestRoute(YYZ, YYT); // no pathing to destination connected though
         // FastestRoute(YQX, YYZ); // DIRECT FLIGHT
-        // FastestRoute(YOW, YOW); // origin = destination
+        // FastestRoute(YOW, YOW); // origin = Destination
     }
 
     // Fastest route possibly using breadth first search
@@ -86,13 +85,13 @@ class Program
     {
         // Modified this for finding fastestroute I think
         // BFS actual algorithm
-        Queue<AirportNode> Q = new Queue<AirportNode>();
-        Q.Enqueue(origin);
-        List<AirportNode> visited = new List<AirportNode>();
-        visited.Add(origin);
-        AirportNode current = origin;
+        Queue<AirportNode> Q = new Queue<AirportNode>(); // create queue
+        Q.Enqueue(origin);  // queue up origin
+        List<AirportNode> visited = new List<AirportNode>(); // visited list
+        visited.Add(origin);    // add origin to visited list
+        AirportNode current = origin; // set current node to origin
         int cnt = 1; // path counter
-        // checks if queue is empty by peeking, if origin contains destination in its list, if origin=destination
+        // checks if queue is empty by peeking, if origin contains destination in its list, if origin=Destination
         while (Q.TryPeek(out current) && !current.Destinations.Contains(Destination) && !current.Equals(Destination))
         {
             current = Q.Dequeue(); // dequeues node
