@@ -44,6 +44,7 @@ class AirportNode
         {
             sb.Append($"({i.Code}) ");
         }
+        sb.Append("\n");
         return sb.ToString();
     }
 }

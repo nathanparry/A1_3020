@@ -32,8 +32,8 @@ class RouteMap
     }
     public bool AddAirport(AirportNode a) //Method to add airportnode. Duplicates not allowed. 5%
     {
-        // checks if airpot node name and code and already present before adding
-        if (!FindAirport(a.Name) && !FindAirportCode(a.Code))
+        // checks for duplicate node before adding
+        if (!A.Contains(a))
         {
             A.Add(a);   // adds airport node
             return true;
@@ -46,7 +46,7 @@ class RouteMap
 
     public bool RemoveAirport(AirportNode a) //Method to remove airport node. Node must exist. 5%
     {
-        if (A.Contains(a)) // checks if route map contains removal airport node
+        if (A.Contains(a)) // checks if route map contains airport node for removal
         {
             A.Remove(a); // removes the airport node
             return true;
